@@ -1,7 +1,26 @@
-table.center {
+table.center, .divGameStage{
 	text-align: center;
 }
 
 #initialPage input {
 	margin-top: 10px;
 }
+
+.gameCell {
+	width: 100px;
+	height: 100px;
+}
+
+.borderBottom {
+	border-bottom: 1px solid red;
+}
+
+.borderBottomRight {
+	border-bottom: 1px solid red;
+	border-right: 1px solid red;
+}
+
+.borderRight {
+	border-right: 1px solid red;
+}
+
