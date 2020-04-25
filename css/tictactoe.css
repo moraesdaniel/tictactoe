@@ -1,5 +1,13 @@
+#gameStage {
+	margin-top: 20px;
+}
+
 table.center, .divGameStage{
 	text-align: center;
+}
+
+.divGameStage {
+	display: inline-block;
 }
 
 #initialPage input {
