@@ -32,6 +32,7 @@ $(document).ready(function(){
 		$("#nicknamePlayer2").html(nicknamePlayer2);
 		playNumber = 1;
 		clearArrayGame();
+		highlightPlayer(1);
 	}
 
 	$(".gameCell").click(function(){
@@ -45,12 +46,14 @@ $(document).ready(function(){
 			return false;
 		}
 
-		if (playNumber%2 == 0) {
-			urlIcon = "url('images/circle.png')";
-			point = 1;
-		} else {
+		if (playNumber%2 == 1) {
 			urlIcon = "url('images/cross.png')";
 			point = -1;
+			highlightPlayer(2);
+		} else {
+			urlIcon = "url('images/circle.png')";
+			point = 1;
+			highlightPlayer(1);
 		}
 
 		playNumber++;
@@ -72,5 +75,31 @@ $(document).ready(function(){
 		arrayGame['c'][1] = 0;
 		arrayGame['c'][2] = 0;
 		arrayGame['c'][3] = 0;
+	}
+
+	function highlightPlayer(numberPlayer) {
+		var playerInEvidence = "";
+		var anotherPlayer = "";
+		var fontColor = "";
+
+		playerInEvidence = "#nicknamePlayer"+numberPlayer;
+
+		if (numberPlayer == 1) {
+			fontColor = "#ef1d30";
+			anotherPlayer = "#nicknamePlayer2";
+		} else {
+			fontColor = "#0071bc";
+			anotherPlayer = "#nicknamePlayer1";
+		}
+
+		$(playerInEvidence).css("color", "white");
+		$(playerInEvidence).css("padding", "0px 25px");
+		$(playerInEvidence).css("background", fontColor);
+		$(playerInEvidence).css("font-weight", "bold");
+
+		$(anotherPlayer).css("color", "black");
+		$(anotherPlayer).css("padding", "0px");
+		$(anotherPlayer).css("background", "");
+		$(anotherPlayer).css("font-weight", "normal");
 	}
 });
