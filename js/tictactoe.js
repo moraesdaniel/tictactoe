@@ -77,14 +77,14 @@ $(document).ready(function(){
 		arrayGame['c'][3] = 0;
 	}
 
-	function highlightPlayer(numberPlayer) {
+	function highlightPlayer(playerNumber) {
 		var playerInEvidence = "";
 		var anotherPlayer = "";
 		var fontColor = "";
 
-		playerInEvidence = "#nicknamePlayer"+numberPlayer;
+		playerInEvidence = "#nicknamePlayer"+playerNumber;
 
-		if (numberPlayer == 1) {
+		if (playerNumber == 1) {
 			fontColor = "#ef1d30";
 			anotherPlayer = "#nicknamePlayer2";
 		} else {
