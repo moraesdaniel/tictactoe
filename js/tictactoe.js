@@ -13,6 +13,7 @@ $(document).ready(function(){
 			return false;
 		}
 
+		//Initializing the game
 		playGame(nicknamePlayer1, nicknamePlayer2);
 	});
 
