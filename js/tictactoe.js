@@ -1,4 +1,5 @@
 var playNumber = 0;
+var gameFinished = false;
 
 var arrayGame = Array(3);
 
@@ -40,6 +41,11 @@ $(document).ready(function(){
 		var clickedLine = this.id[0];
 		var clickedColumn = this.id[1];
 		var point = 0;
+		var result = 0;
+
+		if (gameFinished) {
+			return false;
+		}
 
 		//Avoiding making two moves in the same cell
 		if (arrayGame[clickedLine][clickedColumn] != 0) {
@@ -61,6 +67,12 @@ $(document).ready(function(){
 		$("#"+this.id).css("background", urlIcon);
 
 		arrayGame[clickedLine][clickedColumn] = point;
+
+		result = validateResult();
+
+		if (result == 3 || result == -3) {
+			EndGame(result);
+		}
 	});
 
 	function clearArrayGame() {
@@ -101,5 +113,69 @@ $(document).ready(function(){
 		$(anotherPlayer).css("padding", "0px");
 		$(anotherPlayer).css("background", "");
 		$(anotherPlayer).css("font-weight", "normal");
+	}
+
+	function validateResult() {
+		var result = 0;
+
+		//Horizontal
+		result = arrayGame['a'][1] + arrayGame['a'][2] + arrayGame['a'][3]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		result = arrayGame['b'][1] + arrayGame['b'][2] + arrayGame['b'][3]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		result = arrayGame['c'][1] + arrayGame['c'][2] + arrayGame['c'][3]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		//Vertical
+		result = arrayGame['a'][1] + arrayGame['b'][1] + arrayGame['c'][1]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		result = arrayGame['a'][2] + arrayGame['b'][2] + arrayGame['c'][2]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		result = arrayGame['a'][3] + arrayGame['b'][3] + arrayGame['c'][3]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		//Diagonal
+		result = arrayGame['a'][1] + arrayGame['b'][2] + arrayGame['c'][3]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		result = arrayGame['a'][3] + arrayGame['b'][2] + arrayGame['c'][1]
+		if (result == 3 || result == -3) {
+			return result;
+		}
+
+		return 0;
+	}
+
+	function EndGame(result) {
+		var msgAlert = "";
+
+		if (result == -3) {
+			msgAlert = "Congrats "+$("#nicknamePlayer1").html()+", you are the winner!";
+		} else {
+			msgAlert = "Congrats "+$("#nicknamePlayer2").html()+", you are the winner!";
+		}
+		
+		$("#alertMessage").html(msgAlert);
+		$("#alertWindow").css("display", "block");
+
+		gameFinished = true;
 	}
 });

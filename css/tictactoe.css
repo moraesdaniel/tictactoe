@@ -1,8 +1,8 @@
-#gameStage {
+#gameStage, #alertWindow {
 	margin-top: 20px;
 }
 
-table.center, .divGameStage{
+table.center, .divGameStage {
 	text-align: center;
 }
 
@@ -30,4 +30,9 @@ table.center, .divGameStage{
 
 .borderRight {
 	border-right: 1px solid red;
+}
+
+p {
+	margin: 0px;
+	padding: 0px;
 }
