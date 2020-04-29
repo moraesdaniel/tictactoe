@@ -43,9 +43,7 @@ $(document).ready(function(){
 		var result = 0;
 
 		//Avoiding making two moves in the same cell
-		if (arrayGame[clickedLine][clickedColumn] != 0) {
-			return false;
-		}
+		$("#"+this.id).off();
 
 		if (playNumber%2 == 1) {
 			urlIcon = "url('images/cross.png')";
