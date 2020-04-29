@@ -65,6 +65,8 @@ $(document).ready(function(){
 
 		if (result == 3 || result == -3) {
 			EndGame(result);
+		} else if (playNumber == 10) {
+			$("#alertWindow").css("display", "block");
 		}
 	});
 
@@ -166,7 +168,7 @@ $(document).ready(function(){
 			msgAlert = "Congrats "+$("#nicknamePlayer2").html()+", you are the winner!";
 		}
 		
-		$("#alertMessage").html(msgAlert);
+		$("#alertMessage").html("<b>"+msgAlert+"</b>");
 		$("#alertWindow").css("display", "block");
 
 		$(".gameCell").off();
