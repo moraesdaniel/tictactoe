@@ -1,5 +1,4 @@
 var playNumber = 0;
-var gameFinished = false;
 
 var arrayGame = Array(3);
 
@@ -42,10 +41,6 @@ $(document).ready(function(){
 		var clickedColumn = this.id[1];
 		var point = 0;
 		var result = 0;
-
-		if (gameFinished) {
-			return false;
-		}
 
 		//Avoiding making two moves in the same cell
 		if (arrayGame[clickedLine][clickedColumn] != 0) {
@@ -176,6 +171,6 @@ $(document).ready(function(){
 		$("#alertMessage").html(msgAlert);
 		$("#alertWindow").css("display", "block");
 
-		gameFinished = true;
+		$(".gameCell").off();
 	}
 });
